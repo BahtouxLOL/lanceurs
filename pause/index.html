@@ -22,8 +22,8 @@
 <main>
   <img src="icon-512.png" alt="">
   <p id="msg">Ouverture de Pause…</p>
-  <button id="install" hidden>Installer sur l'écran d'accueil</button>
-  <p id="help" hidden>Menu Chrome (⋮), puis « Ajouter à l'écran d'accueil », puis « Installer ».<br><a href="https://claude.ai/artifact/PT224zzkkrU85hx4GKJNPU">Ouvrir sans installer</a></p>
+  <button id="install" hidden>Installer sur l’écran d’accueil</button>
+  <p id="help" hidden>Menu Chrome (⋮), puis « Ajouter à l’écran d’accueil », puis « Installer ».<br><a href="https://claude.ai/artifact/PT224zzkkrU85hx4GKJNPU">Ouvrir sans installer</a></p>
 </main>
 <script>
   var target = "https://claude.ai/artifact/PT224zzkkrU85hx4GKJNPU";
@@ -32,7 +32,7 @@
   if (standalone) {
     location.replace(target);
   } else {
-    document.getElementById('msg').textContent = 'Lanceur de Pause. Installe-le pour avoir son icône sur ton écran d'accueil.';
+    document.getElementById('msg').textContent = 'Lanceur de Pause. Installe-le pour avoir son icône sur ton écran d’accueil.';
     document.getElementById('help').hidden = false;
     var deferred = null, btn = document.getElementById('install');
     addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; btn.hidden = false; });

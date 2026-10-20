@@ -22,8 +22,8 @@
 <main>
   <img src="icon-512.png" alt="">
   <p id="msg">Ouverture de Dentelles 2027…</p>
-  <button id="install" hidden>Installer sur l'écran d'accueil</button>
-  <p id="help" hidden>Menu Chrome (⋮), puis « Ajouter à l'écran d'accueil », puis « Installer ».<br><a href="https://claude.ai/code/artifact/7762e931-08cb-4d35-a8a5-d93c5d1aff7f">Ouvrir sans installer</a></p>
+  <button id="install" hidden>Installer sur l’écran d’accueil</button>
+  <p id="help" hidden>Menu Chrome (⋮), puis « Ajouter à l’écran d’accueil », puis « Installer ».<br><a href="https://claude.ai/code/artifact/7762e931-08cb-4d35-a8a5-d93c5d1aff7f">Ouvrir sans installer</a></p>
 </main>
 <script>
   var target = "https://claude.ai/code/artifact/7762e931-08cb-4d35-a8a5-d93c5d1aff7f";
@@ -32,7 +32,7 @@
   if (standalone) {
     location.replace(target);
   } else {
-    document.getElementById('msg').textContent = 'Lanceur de Dentelles 2027. Installe-le pour avoir son icône sur ton écran d'accueil.';
+    document.getElementById('msg').textContent = 'Lanceur de Dentelles 2027. Installe-le pour avoir son icône sur ton écran d’accueil.';
     document.getElementById('help').hidden = false;
     var deferred = null, btn = document.getElementById('install');
     addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; btn.hidden = false; });
