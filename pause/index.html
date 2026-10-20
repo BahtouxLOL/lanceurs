@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Pause</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-512.png">
+<link rel="apple-touch-icon" href="icon-512.png">
+<meta name="theme-color" content="#1A2029">
+<style>
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #1A2029; color: #F2E9E4; font-family: system-ui, sans-serif; text-align: center; }
+  img { width: 120px; height: 120px; border-radius: 28px; }
+  p { max-width: 30ch; line-height: 1.5; margin: 20px auto; }
+  button, a { font: inherit; color: inherit; }
+  button { padding: 12px 22px; border-radius: 999px; border: 1px solid currentColor; background: transparent; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <img src="icon-512.png" alt="">
+  <p id="msg">Ouverture de Pause…</p>
+  <button id="install" hidden>Installer sur l'écran d'accueil</button>
+  <p id="help" hidden>Menu Chrome (⋮), puis « Ajouter à l'écran d'accueil », puis « Installer ».<br><a href="https://claude.ai/artifact/PT224zzkkrU85hx4GKJNPU">Ouvrir sans installer</a></p>
+</main>
+<script>
+  var target = "https://claude.ai/artifact/PT224zzkkrU85hx4GKJNPU";
+  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+  var standalone = matchMedia('(display-mode: standalone)').matches || matchMedia('(display-mode: minimal-ui)').matches;
+  if (standalone) {
+    location.replace(target);
+  } else {
+    document.getElementById('msg').textContent = 'Lanceur de Pause. Installe-le pour avoir son icône sur ton écran d'accueil.';
+    document.getElementById('help').hidden = false;
+    var deferred = null, btn = document.getElementById('install');
+    addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); deferred = e; btn.hidden = false; });
+    btn.addEventListener('click', function () { if (deferred) { deferred.prompt(); deferred = null; btn.hidden = true; } });
+  }
+</script>
+</body>
+</html>
