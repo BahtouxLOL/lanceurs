@@ -1,12 +1,12 @@
 {
   "id": "./?app=dentelles",
-  "name": "Dentelles 2027",
-  "short_name": "Dentelles 2027",
+  "name": "LOCKED IN",
+  "short_name": "LOCKED IN",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#FFFFFF",
+  "background_color": "#ECEADB",
+  "theme_color": "#ECEADB",
   "icons": [
     {
       "src": "icon-512.png",
